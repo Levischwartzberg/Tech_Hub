@@ -1,5 +1,19 @@
-header, .project:not(:last-child) {
+header, .post:not(:last-child) {
   border-bottom: 1px solid #ccc;
+}
+
+header {
+  background-image: linear-gradient( #34333d, #4f505c);
+}
+
+body {background-color: #b4aeae;}
+
+a {
+  color: #379b37;
+}
+
+a:hover {
+  color: #48c948;
 }
 
 .no-button {
@@ -7,18 +21,12 @@ header, .project:not(:last-child) {
   border: none;
   padding: 0;
   cursor: pointer;
-  color: #1b89bc;
+  color: #379b37;
   text-decoration: none;
   font-size: 100%;
 }
 
 .no-button:hover {
-  color: #065b83;
+  color: #48c948;
   text-decoration: underline;
-}
-
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
 }
