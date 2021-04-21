@@ -1,12 +1,16 @@
 <div class="text-center">
   <p style="display: none" id="post-id" type={{id}}></p>
-  <h2>{{title}}</h2>
-  <p>{{content}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>Comments:</p>
-  {{#each comments as |comment|}}
-  <p>{{comment.text}} by {{comment.user_id}} on {{format_date comment.date_created}}</p>
-  {{/each}}
+  <div class="post">
+    <h2>{{title}}</h2>
+    <p>{{content}}</p>
+    <p class="creator">Created by {{user.name}} on {{format_date date_created}}</p>
+  </div>
+  <div class="comments">
+    <p>Comments:</p>
+    {{#each comments as |comment|}}
+    <p>{{comment.text}} </p> <p class="creator"> by {{comment.user_id}} on {{format_date comment.date_created}} </p>
+    {{/each}}
+  </div>
   <form class="form comment-form">
       <div class="form-group">
         <label for="post-comment">Comment:</label>

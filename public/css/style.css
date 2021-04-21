@@ -30,3 +30,15 @@ a:hover {
   color: #48c948;
   text-decoration: underline;
 }
+
+.post {
+  border: 1px solid black;
+}
+
+.creator {
+  font-size: small;
+}
+
+.comments {
+  border: 1px solid black;
+}
