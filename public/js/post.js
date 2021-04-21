@@ -1,26 +1,6 @@
-<div class="text-center">
-  <p style="display: none" id="post-id" type={{id}}></p>
-  <h2>{{title}}</h2>
-  <p>{{content}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>{{text}}</p>
-  <form class="form comment-form">
-      <div class="form-group">
-        <label for="post-comment">Comment:</label>
-        <textarea class="form-input" id="post-comment" name="post-comment"></textarea>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">Comment</button>
-      </div>
-    </form>
-</div>
-
-<script>
-  const newFormHandler = async (event) => {
+console.log("test")
+const newFormHandler = async (event) => {
     event.preventDefault();
-
-    const postId = parseInt(document.getElementById("post-id").getAttribute("type"));
-    console.log(postId);
   
     const comment = document.querySelector('#post-comment').value.trim();
     console.log(comment);
@@ -35,7 +15,7 @@
       });
   
       if (response.ok) {
-        document.location.replace(`/post/${postId}`);
+        document.location.replace('/post');
       } else {
         alert('Failed to add comment');
       }
@@ -66,4 +46,3 @@
     .querySelector('.comment-list')
     .addEventListener('click', delButtonHandler);
   
-</script>
