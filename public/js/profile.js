@@ -75,8 +75,8 @@ const updatePostHandler = async (event) => {
     document.getElementById("update-btn").setAttribute("data-id", id)
     document.getElementById("create-btn").setAttribute("style", "display: none;")
 
-    document.querySelector('#post-title').defaultValue = document.getElementById('posttitle').textContent;
-    document.querySelector('#post-content').textContent = document.getElementById('postcontent').textContent;
+    document.querySelector('#post-title').defaultValue = document.getElementById(`posttitle${id}`).textContent;
+    document.querySelector('#post-content').textContent = document.getElementById(`postcontent${id}`).textContent;
   }
 };
 
