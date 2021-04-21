@@ -8,7 +8,10 @@ router.post('/', withAuth, async (req, res) => {
       text: req.body.comment,
       post_id: req.body.postId,
       user_id: req.session.user_id,
+      user_name: req.session.user_name,
     });
+
+    console.log(req.session.user_name);
 
     res.status(200).json(newComment);
   } catch (err) {
