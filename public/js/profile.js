@@ -1,48 +1,52 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
+  if(document.getElementById("create-btn").getAttribute("style") === "display: block") {
+    const title = document.querySelector('#post-title').value.trim();
+    const content = document.querySelector('#post-content').value.trim();
 
-  const title = document.querySelector('#post-title').value.trim();
-  const content = document.querySelector('#post-content').value.trim();
+    if (title && content) {
+      const response = await fetch(`/api/posts/`, {
+        method: 'POST',
+        body: JSON.stringify({ title, content}),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-  if (title && content) {
-    const response = await fetch(`/api/posts/`, {
-      method: 'POST',
-      body: JSON.stringify({ title, content}),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to create project');
+      if (response.ok) {
+        document.location.replace('/profile');
+      } else {
+        alert('Failed to create project');
+      }
     }
+  }
+  else {
+    updateHandler();
   }
 };
 
 const updateHandler = async (event) => {
-  event.preventDefault();
-  console.log("test");
   const title = document.querySelector('#post-title').value.trim();
   const content = document.querySelector('#post-content').value.trim();
   const id = document.getElementById("update-btn").getAttribute('data-id');
 
-  if (title && content) {
-    const response = await fetch(`/api/posts/${id}`, {
-      method: 'PUT',
-      body: JSON.stringify({ title, content}),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to edit post');
+    console.log("test");
+    if (title && content) {
+      const response = await fetch(`/api/posts/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({ title, content}),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (response.ok) {
+        document.location.replace('/profile');
+      } else {
+        alert('Failed to edit post');
+      }
     }
-  }
+
 };
 
 const delButtonHandler = async (event) => {
@@ -79,10 +83,6 @@ const updatePostHandler = async (event) => {
 document
   .querySelector('.new-post-form')
   .addEventListener('submit', newFormHandler);
-
-document
-  .querySelector('.new-post-form')
-  .addEventListener('submit', updateHandler);
 
 document
   .querySelector('.post-list')
