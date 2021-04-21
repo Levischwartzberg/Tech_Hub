@@ -6,7 +6,7 @@
 
 <div class="row mt-4">
   <div class="col-md-6">
-    <h3>Create a New Tech Post:</h3>
+    <h3 id="update/create">Create a New Tech Post:</h3>
 
     <form class="form new-post-form">
       <div class="form-group">
@@ -18,7 +18,8 @@
         <textarea class="form-input" id="post-content" name="post-content"></textarea>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button style="display: block" id="create-btn" type="submit" class="btn btn-primary">Create</button>
+        <button style="display: none" id="update-btn" type="submit" class="btn btn-primary">Update</button>
       </div>
     </form>
   </div>
@@ -31,9 +32,12 @@
     <div class="row mb-2">
       <div class="col-md-8">
         <h4><a href="/post/{{post.id}}">{{post.title}}</a></h4>
+        <p id="posttitle" style="display: none;">{{post.title}}</p>
+        <p id="postcontent" style="display: none;">{{post.content}}</p>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
+        <button class="btn btn-sm btn-success" data-id="{{post.id}}" id="update">UPDATE</button>
+        <button class="btn btn-sm btn-danger" data-id="{{post.id}}" id="delete">DELETE</button>
       </div>
     </div>
     {{/each}}

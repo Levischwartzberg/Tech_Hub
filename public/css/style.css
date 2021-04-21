@@ -42,3 +42,12 @@ a:hover {
 .comments {
   border: 1px solid black;
 }
+
+.btn-success {
+  background-color: #0e520e;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #126812;
+}
