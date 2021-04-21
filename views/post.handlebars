@@ -3,7 +3,10 @@
   <h2>{{title}}</h2>
   <p>{{content}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>{{text}}</p>
+  <p>Comments:</p>
+  {{#each comments as |comment|}}
+  <p>{{comment.text}} by {{comment.user_id}} on {{format_date comment.date_created}}</p>
+  {{/each}}
   <form class="form comment-form">
       <div class="form-group">
         <label for="post-comment">Comment:</label>

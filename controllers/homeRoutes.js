@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { json } = require('sequelize');
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
@@ -37,12 +38,13 @@ router.get('/post/:id', async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['text'],
         },
       ],
     });
 
     const post = postData.get({ plain: true });
+    console.log(postData);
+    console.log(post);
 
     res.render('post', {
       ...post,
